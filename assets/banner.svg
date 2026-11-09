@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="40%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75" stroke-opacity="0.6"/>
+      <circle cx="40" cy="0" r="1.5" fill="#38bdf8" fill-opacity="0.2"/>
+    </pattern>
+
+    <!-- Card Background -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="glowFilter">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 42px;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      fill: #94a3b8;
+    }
+    .badge-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      fill: #e2e8f0;
+    }
+    .step-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      fill: #38bdf8;
+    }
+    .step-desc {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      fill: #cbd5e1;
+    }
+
+    /* Ambient Dynamic Animations */
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+      50% { transform: scale(1.25) translate(30px, -20px); opacity: 0.65; }
+    }
+    @keyframes pulseOrb2 {
+      0%, 100% { transform: scale(1.1) translate(0, 0); opacity: 0.3; }
+      50% { transform: scale(0.9) translate(-40px, 25px); opacity: 0.6; }
+    }
+    @keyframes dashStream {
+      0% { stroke-dashoffset: 240; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes glowBar {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; filter: drop-shadow(0 0 10px #38bdf8); }
+    }
+
+    .orb-1 {
+      animation: pulseOrb 9s ease-in-out infinite;
+      transform-origin: 950px 100px;
+    }
+    .orb-2 {
+      animation: pulseOrb2 11s ease-in-out infinite;
+      transform-origin: 150px 320px;
+    }
+    .data-stream {
+      stroke-dasharray: 8 6;
+      animation: dashStream 14s linear infinite;
+    }
+    .card-anim-1 { animation: floatCard 6s ease-in-out infinite; }
+    .card-anim-2 { animation: floatCard 6s ease-in-out infinite 1.2s; }
+    .card-anim-3 { animation: floatCard 6s ease-in-out infinite 2.4s; }
+    .card-anim-4 { animation: floatCard 6s ease-in-out infinite 3.6s; }
+    .card-anim-5 { animation: floatCard 6s ease-in-out infinite 4.8s; }
+    .dynamic-line { animation: glowBar 4s ease-in-out infinite; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="420" fill="url(#bgGrad)"/>
+
+  <!-- Ambient Dynamic Glowing Orbs in Background -->
+  <g class="orb-1">
+    <circle cx="950" cy="110" r="220" fill="url(#glowGrad)"/>
+  </g>
+  <g class="orb-2">
+    <circle cx="200" cy="310" r="180" fill="url(#glowGrad)"/>
+  </g>
+
+  <!-- Technical Grid Overlay -->
+  <rect width="1200" height="420" fill="url(#grid)"/>
+
+  <!-- Ambient Flowing Sine Waves / Data Streams -->
+  <path class="data-stream" d="M -50 180 Q 250 80, 550 200 T 1250 160" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.35"/>
+  <path class="data-stream" d="M -50 230 Q 350 320, 750 170 T 1250 240" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Top Decorative Highlight Bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#primaryGrad)" class="dynamic-line"/>
+
+  <!-- Foreground Content Group (Keeps Text Clear & Foregrounded) -->
+  <g id="foreground-content">
+    
+    <!-- Header Tag / Pill -->
+    <g transform="translate(80, 48)">
+      <rect width="365" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.6"/>
+      <circle cx="14" cy="14" r="5" fill="#38bdf8" class="dynamic-line"/>
+      <text x="28" y="19" class="badge-text" fill="#38bdf8">ASC 606 &amp; IFRS 15 • AUTOMATED REVENUE RECOGNITION</text>
+    </g>
+
+    <!-- Main Title with Gradient fill -->
+    <text x="80" y="125" class="title">
+      Awesome Automated <tspan fill="url(#primaryGrad)">Revenue Recognition</tspan>
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="80" y="165" class="subtitle">
+      Curated engines, financial subledgers, ERP modules, and open-source tooling for compliance automation.
+    </text>
+
+    <!-- Five Steps Architecture Carousel / Dynamic Cards (ASC 606 5-Step Model) -->
+    <g transform="translate(80, 220)">
+
+      <!-- Step 1 Card -->
+      <g class="card-anim-1" transform="translate(0, 0)">
+        <rect width="192" height="135" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)"/>
+        <rect x="16" y="16" width="34" height="20" rx="6" fill="#0369a1"/>
+        <text x="23" y="30" class="step-title" fill="#e0f2fe">01</text>
+        <text x="16" y="60" class="step-title">Identify Contract</text>
+        <text x="16" y="80" class="step-desc">Enforce enforceable</text>
+        <text x="16" y="96" class="step-desc">customer rights &amp;</text>
+        <text x="16" y="112" class="step-desc">payment terms.</text>
+      </g>
+
+      <!-- Step 2 Card -->
+      <g class="card-anim-2" transform="translate(212, 0)">
+        <rect width="192" height="135" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)"/>
+        <rect x="16" y="16" width="34" height="20" rx="6" fill="#4338ca"/>
+        <text x="23" y="30" class="step-title" fill="#e0e7ff">02</text>
+        <text x="16" y="60" class="step-title">Performance Obligations</text>
+        <text x="16" y="80" class="step-desc">Identify distinct</text>
+        <text x="16" y="96" class="step-desc">goods, services, &amp;</text>
+        <text x="16" y="112" class="step-desc">subscription bundles.</text>
+      </g>
+
+      <!-- Step 3 Card -->
+      <g class="card-anim-3" transform="translate(424, 0)">
+        <rect width="192" height="135" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)"/>
+        <rect x="16" y="16" width="34" height="20" rx="6" fill="#6d28d9"/>
+        <text x="23" y="30" class="step-title" fill="#ede9fe">03</text>
+        <text x="16" y="60" class="step-title">Transaction Price</text>
+        <text x="16" y="80" class="step-desc">Evaluate variable</text>
+        <text x="16" y="96" class="step-desc">consideration, discounts,</text>
+        <text x="16" y="112" class="step-desc">&amp; rebates.</text>
+      </g>
+
+      <!-- Step 4 Card -->
+      <g class="card-anim-4" transform="translate(636, 0)">
+        <rect width="192" height="135" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)"/>
+        <rect x="16" y="16" width="34" height="20" rx="6" fill="#7e22ce"/>
+        <text x="23" y="30" class="step-title" fill="#fae8ff">04</text>
+        <text x="16" y="60" class="step-title">Allocate Price (SSP)</text>
+        <text x="16" y="80" class="step-desc">Standalone Selling</text>
+        <text x="16" y="96" class="step-desc">Price relative fair</text>
+        <text x="16" y="112" class="step-desc">value allocation.</text>
+      </g>
+
+      <!-- Step 5 Card -->
+      <g class="card-anim-5" transform="translate(848, 0)">
+        <rect width="192" height="135" rx="12" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.4" filter="url(#cardShadow)"/>
+        <rect x="16" y="16" width="34" height="20" rx="6" fill="#0284c7"/>
+        <text x="23" y="30" class="step-title" fill="#ffffff">05</text>
+        <text x="16" y="60" class="step-title" fill="#38bdf8">Recognize Revenue</text>
+        <text x="16" y="80" class="step-desc">Point-in-time or ratable</text>
+        <text x="16" y="96" class="step-desc">over-time schedules</text>
+        <text x="16" y="112" class="step-desc">to General Ledger.</text>
+      </g>
+
+    </g>
+
+    <!-- Bottom Metrics Pill -->
+    <g transform="translate(80, 375)">
+      <text x="0" y="14" class="badge-text" fill="#64748b">📊 SaaS Subledgers • ⚙️ Open-Source Engines • 📑 IFRS 15 / ASC 606 Compliance • 🔄 Automated Waterfalls</text>
+    </g>
+
+  </g>
+</svg>
