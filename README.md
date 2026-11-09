@@ -61,7 +61,7 @@ The following enterprise and mid-market SaaS platforms automate the 5-step ASC 6
 
 ## 💻 Open-Source Software & Developer Toolkits
 
-Curated open-source projects, CLI tools, libraries, and subledgers implementing ASC 606 / IFRS 15 rules, contract allocation algorithms, and deferred revenue schedules. Table is sorted by **GitHub Stars descending**.
+Curated open-source projects, CLI tools, libraries, and subledgers implementing ASC 606 / IFRS 15 rules, contract allocation algorithms, and deferred revenue schedules. Table is sorted by **GitHub_Stars descending**.
 
 | Repository & Stargazers 🌟 | Tech Stack 🛠️ | License 📜 | Focus & Scope 📌 |
 |---|---|---|---|
